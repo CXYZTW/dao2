@@ -171,23 +171,21 @@ const memberList = useMemo(() => {
   if (!address) {
     return (
       <div className="landing">
-        <h1>Welcome to ARTEDYX 🚀 DAO CLIMATE Marketplace New Stock Exchange</h1>
+        <h1>Welcome to Charity
+      </h1>
         <div className="btn-hero">
           <ConnectWallet />
         </div>
       </div>
     );
   }
-  
-// If the user has already claimed their NFT we want to display the internal DAO page to them
-// only DAO members will see this. Render all the members + token amounts.
 
 
 if (hasClaimedNFT) {
   return (
     <div className="member-page">
-      <h1>eSpatiale  🚀 ARTEDYX DAO Member Page</h1>
-      <p>Congratulations on being an eSpatiale  🚀 DAO governance member</p>
+      <h1>CharityDAO Member Page</h1>
+      <p>Congratulations on being a CharityDAO governance member</p>
       <div>
         <div>
           <h2>Member List</h2>
@@ -342,7 +340,7 @@ if (hasClaimedNFT) {
 // Render mint nft screen.
 return (
   <div className="mint-nft">
-    <h1>Mint your free eSpatiale 🚀 DAO governance Membership NFT</h1>
+    <h1>Mint your free CharityDAO Membership NFT</h1>
     <div className="btn-hero">
       <Web3Button
         contractAddress={editionDropAddress}
@@ -358,7 +356,7 @@ return (
           console.error('Failed to mint NFT', error);
         }}
       >
-        Mint youreSpatiale 🚀 NFT for (FREE)
+        Mint your CharityDAO NFT for (FREE)
       </Web3Button>
     </div>
   </div>
