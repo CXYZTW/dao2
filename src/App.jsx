@@ -4,25 +4,25 @@ import { AddressZero } from "@ethersproject/constants";
 import { ChainId } from '@thirdweb-dev/sdk';
 
 
-const App = () => {
+function App() {
   // Use the hooks thirdweb give us.
   const address = useAddress();
   console.log("👋 Address:", address);
   const network = useNetwork();
 
   // Initialize our Edition Drop contract
-  const editionDropAddress = "0x7785609c7A2e308fC793318b81c40FCC8770Ba95"
+  const editionDropAddress = "0x7785609c7A2e308fC793318b81c40FCC8770Ba95";
   const { contract: editionDrop } = useContract(editionDropAddress, "edition-drop");
   // Hook to check if the user has our NFT
-  const { data: nftBalance } = useNFTBalance(editionDrop, address, "0")
+  const { data: nftBalance } = useNFTBalance(editionDrop, address, "0");
 
   // Initialize our token contract
   const { contract: token } = useContract('0x9A171158098CA9f2C321e35d7C653B6F595B7b0A', 'token');
   const { contract: vote } = useContract("0xDC485c5eeBD7444648d99AF7737d3aBc7348cBCc", "vote");
 
   const hasClaimedNFT = useMemo(() => {
-    return nftBalance && nftBalance.gt(0)
-  }, [nftBalance])
+    return nftBalance && nftBalance.gt(0);
+  }, [nftBalance]);
 
   // Holds the amount of token each member has in state.
   const [memberTokenAmounts, setMemberTokenAmounts] = useState([]);
@@ -96,7 +96,7 @@ const App = () => {
     const getAllAddresses = async () => {
       try {
         const memberAddresses = await editionDrop?.history.getAllClaimerAddresses(
-          0,
+          0
         );
         setMemberAddresses(memberAddresses);
         console.log('🚀 Members addresses', memberAddresses);
@@ -151,9 +151,8 @@ const App = () => {
       </div>
     );
   }
-  
-  // ... include all your other code that was already there below.
 
+  // ... include all your other code that was already there below.
   // This is the case where the user hasn't connected their wallet
   // to your web app. Let them call connectWallet.
   if (!address) {
@@ -176,7 +175,7 @@ const App = () => {
       </div>
     );
   }
-  
+
   // If the user has already claimed their NFT we want to display the interal DAO page to them
   // only DAO members will see this. Render all the members + token amounts.
   if (hasClaimedNFT) {
@@ -225,7 +224,7 @@ const App = () => {
                   };
                   proposal.votes.forEach((vote) => {
                     const elem = document.getElementById(
-                      proposal.proposalId + '-' + vote.type,
+                      proposal.proposalId + '-' + vote.type
                     );
 
                     if (elem.checked) {
@@ -259,7 +258,7 @@ const App = () => {
                         }
                         // if the proposal is not open for voting we just return nothing, letting us continue
                         return;
-                      }),
+                      })
                     );
                     try {
                       // if any of the propsals are ready to be executed we'll need to execute them
@@ -273,7 +272,7 @@ const App = () => {
                           if (proposal.state === 4) {
                             return vote.execute(proposalId);
                           }
-                        }),
+                        })
                       );
                       // if we get here that means we successfully voted, so let's set the "hasVoted" state to true
                       setHasVoted(true);
@@ -291,7 +290,7 @@ const App = () => {
                   // in *either* case we need to set the isVoting state to false to enable the button again
                   setIsVoting(false);
                 }
-              }}
+              } }
             >
               {proposals.map((proposal) => (
                 <div key={proposal.proposalId} className="card">
@@ -305,8 +304,7 @@ const App = () => {
                           name={proposal.proposalId}
                           value={type}
                           //default the "abstain" vote to checked
-                          defaultChecked={type === 2}
-                        />
+                          defaultChecked={type === 2} />
                         <label htmlFor={proposal.proposalId + '-' + type}>
                           {label}
                         </label>
@@ -319,8 +317,8 @@ const App = () => {
                 {isVoting
                   ? 'Voting...'
                   : hasVoted
-                  ? 'You Already Voted'
-                  : 'Submit Votes'}
+                    ? 'You Already Voted'
+                    : 'Submit Votes'}
               </button>
               {!hasVoted && (
                 <small>
@@ -338,19 +336,19 @@ const App = () => {
   // Render mint nft screen.
   return (
     <div className="mint-nft">
-      <h1>Mint your free CharityDAO VIP NFT</h1>
+      <h1>Mint your free CharityD VIP NFT</h1>
       <div className="btn-hero">
-        <Web3Button 
+        <Web3Button
           contractAddress={"0x7785609c7A2e308fC793318b81c40FCC8770Ba95"}
           action={contract => {
-            contract.erc1155.claim(0, 1)
-          }}
+            contract.erc1155.claim(0, 1);
+          } }
           onSuccess={() => {
             console.log(`🌊 Successfully Minted! Check it out on OpenSea: https://testnets.opensea.io/assets/${editionDrop.getAddress()}/0`);
-          }}
+          } }
           onError={error => {
             console.error("Failed to mint NFT", error);
-          }}
+          } }
         >
           Mint your NFT (FREE)
         </Web3Button>
