@@ -121,11 +121,19 @@ button {
   border: none;
   font-weight: bold;
   font-family: inherit;
-  width: 80px;
-  height: 50px;
+  padding: 0.6rem 1rem;
   text-transform: uppercase;
   border-radius: 3rem;
   font-size: 1.2rem;
+}
+
+<div class="button-container">
+  <button>Connect Wallet</button>
+</div>
+
+.button-container {
+  display: flex;
+  justify-content: center;
 }
 
 button:hover {
