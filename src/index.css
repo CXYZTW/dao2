@@ -32,10 +32,8 @@ body {
 };
 
 #root {
-  min-height: 100%;
-  width: auto;
+  min-height: 100vh;
   display: flex;
-  
 }
 
 h1 {
@@ -118,7 +116,7 @@ h1 {
 
 .member-page form h5 {
   margin-top: 0;
-  color: #7700ee;
+  color: #007bee;
 }
 
 .member-page form .card > div {
