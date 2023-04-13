@@ -18,6 +18,27 @@ body {
   animation: GradientBackground 20s ease infinite;
 }
 
+@keyframes GradientBackground {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+};
+
+#root {
+  min-height: 100%;
+  width: auto;
+  display: flex;
+  
+}
+
 h1 {
   font-size: 5rem;
 }
