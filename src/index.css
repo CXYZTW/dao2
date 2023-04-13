@@ -12,6 +12,12 @@ body {
   display: flex;
 }
 
+body {
+  background: linear-gradient(101deg, #002e7a, #2a9df4, #ffffff);
+  background-size: 600% 600%;
+  animation: GradientBackground 20s ease infinite;
+}
+
 h1 {
   font-size: 5rem;
 }
