@@ -4,8 +4,7 @@ body {
   font-family: Inter, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #002e7a;
-  color: #fff;
+  background-color: #0096FF;
   overflow-x: hidden;
 }
 #root {
@@ -121,19 +120,10 @@ button {
   border: none;
   font-weight: bold;
   font-family: inherit;
-  padding: 0.6rem 1rem;
+  padding: 0.2rem 0.8rem;
   text-transform: uppercase;
   border-radius: 3rem;
   font-size: 1.2rem;
-}
-
-<div class="button-container">
-  <button>Connect Wallet</button>
-</div>
-
-.button-container {
-  display: flex;
-  justify-content: center;
 }
 
 button:hover {
