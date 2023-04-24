@@ -10,6 +10,26 @@ import { ChainId } from '@thirdweb-dev/sdk';
 import { useState, useEffect, useMemo } from 'react';
 import { AddressZero } from "@ethersproject/constants";
 
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+
+const AboutPage = () => {
+  return (
+    <div className="subpage" style={{ backgroundColor: 'blue', color: 'white' }}>
+      <h1>About Us</h1>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc aliquam velit id ligula laoreet tempus.</p>
+    </div>
+  );
+};
+
+const DashboardPage = () => {
+  return (
+    <div className="subpage" style={{ backgroundColor: 'blue', color: 'white' }}>
+      <h1>Dashboard</h1>
+      <p>This is the dashboard page.</p>
+    </div>
+  );
+};
+
 const App = () => {
   // Use the hooks thirdweb give us.
   const address = useAddress();
@@ -96,13 +116,6 @@ useEffect(() => {
   checkIfUserHasVoted();
 
 }, [hasClaimedNFT, proposals, address, vote]);
-
-
-
-
-
-
-
 
 
 
@@ -362,5 +375,38 @@ return (
   </div>
 );
 };
+
+return (
+  <Router>
+    <div>
+      <nav>
+        <ul>
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="/about">About</Link>
+          </li>
+          <li>
+            <Link to="/dashboard">Dashboard</Link>
+          </li>
+        </ul>
+      </nav>
+
+      <Switch>
+        <Route path="/about">
+          <AboutPage />
+        </Route>
+        <Route path="/dashboard">
+          <DashboardPage />
+        </Route>
+        <Route path="/">
+          {/* The existing content of your App component goes here */}
+        </Route>
+      </Switch>
+    </div>
+  </Router>
+);
+
 
 export default App;
