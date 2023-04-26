@@ -18,12 +18,12 @@ const App = () => {
   const network = useNetwork();
 
  // Initialize our Edition Drop contract
- const editionDropAddress = "0x7785609c7A2e308fC793318b81c40FCC8770Ba95";
+ const editionDropAddress = "0xdd2B3fC114f11EaE5c24E6cF11fb059FEf6FF0D7";
  const { contract: editionDrop } = useContract(editionDropAddress, "edition-drop");
  // Initialize our token contract
-const { contract: token } = useContract("0x9A171158098CA9f2C321e35d7C653B6F595B7b0A", "token");
+const { contract: token } = useContract("0x7bC3B5aAF6cc88B2dce57df1A5872eAC962dB07E", "token");
 
-const { contract: vote } = useContract("0xDC485c5eeBD7444648d99AF7737d3aBc7348cBCc", "vote");
+const { contract: vote } = useContract("0x54A9076F63a7e49d1c9705BEA4AE8977102BC296", "vote");
 
  // Hook to check if the user has our NFT
  const { data: nftBalance } = useNFTBalance(editionDrop, address, "0")
@@ -164,7 +164,7 @@ const memberList = useMemo(() => {
   if (!address) {
     return (
       <div className="landing">
-        <h1>Welcome to Charity
+        <h1>Welcome to DobroDAO
       </h1>
         <div className="btn-hero">
           <ConnectWallet />
@@ -177,8 +177,8 @@ const memberList = useMemo(() => {
 if (hasClaimedNFT) {
   return (
     <div className="member-page">
-      <h1>CharityDAO Member Page</h1>
-      <p>Congratulations on being a CharityDAO governance member</p>
+      <h1>DobroDAO Member Page</h1>
+      <p>Congratulations on being a DobroDAO governance member</p>
       <div>
         <div>
           <h2>Member List</h2>
@@ -333,7 +333,7 @@ if (hasClaimedNFT) {
 // Render mint nft screen.
 return (
   <div className="mint-nft">
-    <h1>Mint your free CharityDAO Membership NFT</h1>
+    <h1>Mint your free DobroDAO Membership NFT</h1>
     <div className="btn-hero">
       <Web3Button
         contractAddress={editionDropAddress}
@@ -349,7 +349,7 @@ return (
           console.error('Failed to mint NFT', error);
         }}
       >
-        Mint your CharityDAO NFT for (FREE)
+        Mint your DobroDAO NFT for (FREE)
       </Web3Button>
     </div>
   </div>
