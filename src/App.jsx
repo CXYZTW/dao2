@@ -21,7 +21,7 @@ const App = () => {
  const editionDropAddress = "0xdd2B3fC114f11EaE5c24E6cF11fb059FEf6FF0D7";
  const { contract: editionDrop } = useContract(editionDropAddress, "edition-drop");
  // Initialize our token contract
-const { contract: token } = useContract("0x0408C2c859866f191ad8107336849749957D06D2", "token");
+const { contract: token } = useContract("0x5B2f462D19B13203A986111d2fFB15f5975B728A", "token");
 
 const { contract: vote } = useContract("0x76F342a0529297A30c67b3752399b5ec69c65f84", "vote");
 
