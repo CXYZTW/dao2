@@ -21,9 +21,9 @@ const App = () => {
  const editionDropAddress = "0xdd2B3fC114f11EaE5c24E6cF11fb059FEf6FF0D7";
  const { contract: editionDrop } = useContract(editionDropAddress, "edition-drop");
  // Initialize our token contract
-const { contract: token } = useContract("0x7bC3B5aAF6cc88B2dce57df1A5872eAC962dB07E", "token");
+const { contract: token } = useContract("0x0408C2c859866f191ad8107336849749957D06D2", "token");
 
-const { contract: vote } = useContract("0x54A9076F63a7e49d1c9705BEA4AE8977102BC296", "vote");
+const { contract: vote } = useContract("0xf321180df9faC441Cd6c96c158e4e10e6Fab7fbA", "vote");
 
  // Hook to check if the user has our NFT
  const { data: nftBalance } = useNFTBalance(editionDrop, address, "0")
