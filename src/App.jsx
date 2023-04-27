@@ -23,7 +23,7 @@ const App = () => {
  // Initialize our token contract
 const { contract: token } = useContract("0x5B2f462D19B13203A986111d2fFB15f5975B728A", "token");
 
-const { contract: vote } = useContract("0x76F342a0529297A30c67b3752399b5ec69c65f84", "vote");
+const { contract: vote } = useContract("0x4ae4d4Ea00264167E70c0CFbdB78F0d0bEF51057", "vote");
 
  // Hook to check if the user has our NFT
  const { data: nftBalance } = useNFTBalance(editionDrop, address, "0")
