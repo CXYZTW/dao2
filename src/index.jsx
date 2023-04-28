@@ -21,5 +21,3 @@ root.render(
     </ThirdwebProvider>
   </React.StrictMode>,
 );
-
-//        <h3>a DAO for members of the Crowd startup community to gain dreamselves. Members earn $Crowd whenever they provide value to the founders or investors, for example by giving them collaboration platform, //supporting them on Customer Development or supporting in growth.</h3>
